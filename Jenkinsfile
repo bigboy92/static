@@ -2,12 +2,8 @@ pipeline {
     agent any
     stages {
         stage('Upload to AWS') {
-            steps {
-                sh 'echo "Hello World"'
-                sh '''
-                    echo "Multilines shell steps works too"
-                    ls -lah
-                '''
+            withAWS(region:'eu-east-1', credentials:'nameOfSystemCredentials') {
+                sh 'echo "Uploaded filt to s3"'
             }
         }
     }
