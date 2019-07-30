@@ -12,8 +12,8 @@ pipeline {
         }
         stage('Upload to AWS') {
             steps{
-                withAWS(region:'eu-east-1', credentials:'aws-static') {
-                    s3Upload(file:'index.html', bucket:'jenkins-jay')
+                withAWS(region:'eu-west-1', credentials:'aws-static') {
+                    s3Upload(file:'index.html', bucket:'jenkins-buck')
                     sh 'echo "uploaded files to s3"'
                 }
             }
